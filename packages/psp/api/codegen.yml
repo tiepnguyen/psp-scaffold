@@ -1,0 +1,9 @@
+schema: typeDefs/*.gql
+overwrite: true
+generates:
+  ../types/index.ts:
+    plugins:
+      - typescript
+    config:
+      avoidOptionals: true
+      enumsAsConst: true

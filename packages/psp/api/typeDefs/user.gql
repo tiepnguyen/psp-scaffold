@@ -1,0 +1,15 @@
+type Mutation {
+  login: User
+  verifyEmailOtp(email: String!, otp: String!): CustomToken
+}
+
+type User {
+  id: ID!
+  name: String
+  email: String
+  createdDate: Date
+}
+
+type CustomToken {
+  token: String!
+}

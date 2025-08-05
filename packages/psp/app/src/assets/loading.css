@@ -1,0 +1,29 @@
+.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+  user-select: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #000;
+  border-left-color: #0002;
+  border-bottom-color: #0002;
+  border-radius: 50%;
+  translate: -50% -50%;
+  animation: spin 0.5s infinite linear;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}

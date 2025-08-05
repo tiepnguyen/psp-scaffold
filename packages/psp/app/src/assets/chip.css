@@ -1,0 +1,24 @@
+.chip {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  background-color: color-mix(in srgb, currentColor, transparent 90%);
+}
+
+.chip-success {
+  color: var(--color-success, #00c951);
+}
+.chip-warning {
+  color: var(--color-warning, #fdc700);
+}
+.chip-error {
+  color: var(--color-error, #fb2c36);
+}
+.chip-info {
+  color: var(--color-info, #00a6f4);
+}
+.chip-neutral {
+  color: var(--color-neutral, #6b7280);
+} 

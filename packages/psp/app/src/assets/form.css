@@ -1,0 +1,54 @@
+.form-input {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.375rem;
+
+  &:focus {
+    outline: none;
+    border-color: color-mix(in srgb, currentColor, transparent 50%);
+    box-shadow: 0 0 0 3px color-mix(in srgb, currentColor, transparent 90%);
+  }
+
+  &.invalid {
+    border-color: #e53e3e;
+
+    & + .input-hint {
+      color: #e53e3e;
+    }
+  }
+
+  &[type='search'] {
+    --inline-bg-position: left;
+
+    appearance: none;
+    padding-inline-start: 2.5rem;
+    background:
+      url('data:image/svg+xml,<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="gray"><circle cx="10" cy="10" r="7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.0156 15.4043L17.9523 18.3334" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+      /* url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>') */
+      var(--inline-bg-position) 0.75rem center / 1.25rem no-repeat;
+      
+      &.searching {
+        background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke="gray" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" ><animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 12 12" to="360 12 12" dur="500ms" repeatCount="indefinite" /></circle></svg>');
+      }
+
+    &:dir(rtl) {
+      --inline-bg-position: right;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+}
+
+.input-hint {
+  font-size: 0.875rem;
+  color: #4a5565;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

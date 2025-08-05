@@ -1,0 +1,11 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-border: #ebe6e7;
+  --transition-duration-medium: 250ms;
+  --transition-duration-fast: 150ms;
+  --grid-template-rows-panel: auto 1fr;
+
+  --spacing-md: 16px;
+}

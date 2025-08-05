@@ -1,0 +1,17 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > *:first-child {
+    margin-inline-end: auto;
+  }
+  > *:last-child {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+}

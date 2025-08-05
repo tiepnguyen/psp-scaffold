@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+}
+
+@layer components {
+  @import './button.css';
+  @import './form.css';
+  @import './divider.css';
+  @import './loading.css';
+  @import './toolbar.css';
+  @import './chip.css';
+}
+
+body {
+  cursor: default;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

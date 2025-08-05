@@ -1,0 +1,15 @@
+{
+  "add_article": "Add article",
+  "search...": "Search...",
+  "title": "Title",
+  "author": "Author",
+  "date": "Date",
+  "category": "Category",
+  "views": "Views",
+  "status": "Status",
+  "draft": "Draft",
+  "scheduled": "Scheduled",
+  "published": "Published",
+  "paused": "Paused",
+  "deleted": "Deleted"
+}

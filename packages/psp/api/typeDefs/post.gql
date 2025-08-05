@@ -1,0 +1,30 @@
+type Query {
+  posts: [Post]
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createPost(data: CreatePostInput!): Post
+}
+
+type Subscription {
+  postCreated: Post
+}
+
+type Post {
+  id: ID!
+  title: String
+  status: Status
+  createdDate: Date
+}
+
+input CreatePostInput {
+  title: String!
+  status: Status
+}
+
+enum Status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
