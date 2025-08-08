@@ -33,6 +33,12 @@ async function verifyOtp() {
   await signInWithToken(data!.verifyEmailOtp.token)
   router.push({ name: 'home' })
 }
+
+watch(otp, () => {
+  if (otp.value.length === 6) {
+    verifyOtp()
+  }
+})
 </script>
 
 <template>
@@ -45,15 +51,7 @@ async function verifyOtp() {
         </button>
       </div>
 
-      <input
-        v-model="otp"
-        type="text"
-        name="otp"
-        autocomplete="one-time-code"
-        class="form-input font-mono"
-        :class="{ invalid: !isValidOtp }"
-        @blur="validateOtp"
-      >
+      <OTPInput v-model:value="otp" />
       <div v-show="!isValidOtp" class="input-hint">
         {{ t('invalid_otp') }}
       </div>

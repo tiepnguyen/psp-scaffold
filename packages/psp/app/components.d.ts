@@ -14,6 +14,7 @@ declare module 'vue' {
     Dropdown: typeof import('./src/components/Dropdown.vue')['default']
     LoginForm: typeof import('./src/components/LoginForm.vue')['default']
     OTPForm: typeof import('./src/components/OTPForm.vue')['default']
+    OTPInput: typeof import('./src/components/OTPInput.vue')['default']
     Popover: typeof import('./src/components/Popover.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
