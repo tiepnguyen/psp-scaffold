@@ -11,7 +11,7 @@ const showSidebar = defineModel('showSidebar', { default: false })
 <template>
   <div class="app-header">
     <div class="lg:hidden">
-      <Button plain class="size-10" @click="showSidebar = true">
+      <Button plain @click="showSidebar = true">
         <IconMenu2 />
       </Button>
     </div>
@@ -34,7 +34,7 @@ const showSidebar = defineModel('showSidebar', { default: false })
     position: sticky;
     inset: 0;
     height: var(--app-header-height);
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     background: #fff;
     z-index: 1;
 

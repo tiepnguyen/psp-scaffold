@@ -52,7 +52,7 @@ function emailSignIn() {
 
 <template>
   <form class="space-y-6" novalidate @submit.prevent="emailSignIn">
-    <Button class="w-full" :class="{ loading: signingGoogle }" @click="googleSignin">
+    <Button class="w-full h-11" :class="{ loading: signingGoogle }" @click="googleSignin">
       <GoogleIcon class="size-5" />
       {{ t('sign_in_with_google') }}
     </Button>
@@ -67,13 +67,8 @@ function emailSignIn() {
       </div>
 
       <input
-        v-model.trim="email"
-        type="email"
-        name="email"
-        autocomplete="email"
-        class="form-input"
-        :class="{ invalid: !isValidEmail }"
-        @blur="validateEmail"
+        v-model.trim="email" type="email" name="email" autocomplete="email" class="form-input"
+        :class="{ invalid: !isValidEmail }" @blur="validateEmail"
       >
 
       <div v-show="!isValidEmail" class="input-hint">
@@ -81,7 +76,7 @@ function emailSignIn() {
       </div>
     </div>
 
-    <Button submit primary class="w-full">
+    <Button submit primary class="w-full h-11">
       {{ t('sign_in') }}
       <IconArrowRight size="20" />
     </Button>

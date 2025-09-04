@@ -56,7 +56,7 @@ watch(otp, () => {
         {{ t('invalid_otp') }}
       </div>
     </div>
-    <Button submit primary class="w-full" :class="{ loading: verifyingOtp }">
+    <Button submit primary class="w-full h-11" :class="{ loading: verifyingOtp }">
       {{ t('verify_otp') }}
     </Button>
 
