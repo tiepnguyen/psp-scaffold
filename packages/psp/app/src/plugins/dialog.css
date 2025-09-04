@@ -1,0 +1,53 @@
+.dialog {
+  margin: auto;
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 28rem;
+
+  &.stacked {
+    justify-items: center;
+    width: 20rem;
+
+    .dialog-footer {
+      display: grid;
+      justify-content: stretch;
+      width: 100%;
+    }
+  }
+}
+
+.dialog-title {
+  font-size: 1.25rem;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  button {
+    padding: 0.375rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px rgb(0 0 0 / 0.05);
+    min-width: 5rem;
+
+    &.primary,
+    &.destructive {
+      font-weight: 500;
+      color: white;
+      border-color: transparent;
+    }
+
+    &.primary {
+      background-color: var(--color-primary, #3b82f6);
+    }
+
+    &.destructive {
+      background-color: var(--color-danger, #ef4444);
+    }
+  }
+}
