@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconDotsVertical, IconFilter, IconPlus } from '@tabler/icons-vue'
+import { IconDotsVertical, IconEdit, IconFilter, IconPlus, IconTrash } from '@tabler/icons-vue'
 import { formatDate } from '@/services/datetime'
 import { formatNumber } from '@/services/number'
 
@@ -87,6 +87,11 @@ const data: Article[] = [
   },
 ]
 
+const rowOptions = [
+  { label: t('edit'), icon: IconEdit },
+  { label: t('delete'), icon: IconTrash, danger: true },
+]
+
 const tableData = computed(() => data
   .map(article => ({
     ...article,
@@ -119,9 +124,6 @@ const tableData = computed(() => data
 
     <div class="overflow-x-auto">
       <TableView v-model:sort="sort" :headers :data="tableData" :sortable>
-        <template #header="{ header }">
-          {{ header }}
-        </template>
         <template #row="{ row }">
           <td>{{ row.title }}</td>
           <td>{{ row.author }}</td>
@@ -133,10 +135,18 @@ const tableData = computed(() => data
               {{ status[row.status] }}
             </span>
           </td>
-          <td class="text-end pe-0">
-            <Button plain class="size-9.5">
-              <IconDotsVertical />
-            </Button>
+          <td class="w-px pe-1">
+            <Dropdown :options="rowOptions" @select="(option) => console.log(option)">
+              <Button plain>
+                <IconDotsVertical />
+              </Button>
+              <template #option="{ option }">
+                <div class="flex items-center gap-4" :class="{ 'text-danger': option.danger }">
+                  <component :is="option.icon" stroke="1.5" />
+                  {{ option.label }}
+                </div>
+              </template>
+            </Dropdown>
           </td>
         </template>
       </TableView>
