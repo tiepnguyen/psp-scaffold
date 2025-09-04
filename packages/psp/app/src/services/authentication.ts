@@ -1,5 +1,5 @@
 import type { User } from 'firebase/auth'
-import { getAuth, GoogleAuthProvider, signInWithCustomToken, signInWithPopup } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, isSignInWithEmailLink, sendSignInLinkToEmail, signInWithCustomToken, signInWithPopup } from 'firebase/auth'
 import { useMutation } from 'villus'
 import { firebaseApp } from '@/firebase'
 
@@ -28,6 +28,18 @@ export async function getUserRole(force = false) {
 
 export function googlePopupSignIn() {
   return signInWithPopup(auth, new GoogleAuthProvider())
+}
+
+export function emailLinkSignIn(email: string) {
+  localStorage.setItem('emailForSignIn', email)
+  return sendSignInLinkToEmail(auth, email, {
+    url: `${window.location.origin}/verify`,
+    handleCodeInApp: true,
+  })
+}
+
+export function isEmailLinkSignin() {
+  return isSignInWithEmailLink(auth, window.location.href)
 }
 
 export function logoutUser() {
