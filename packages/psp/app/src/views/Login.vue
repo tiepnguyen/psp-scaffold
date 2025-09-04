@@ -62,6 +62,7 @@ function toggleOtpScreen() {
 }
 
 .auth-cover {
+  position: relative;
   background: #eee;
   display: none;
 
