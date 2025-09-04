@@ -6,6 +6,7 @@ import {
   IconLogout,
   IconSettingsFilled,
   IconUser,
+  IconUsers,
 } from '@tabler/icons-vue'
 import { logoutUser } from '@/services/authentication'
 
@@ -17,20 +18,25 @@ const showSidebar = ref(false)
 const titleMap: Record<string, string> = {
   dashboard: t('dashboard'),
   articles: t('articles'),
+  members: t('members'),
   settings: t('settings'),
 }
 const title = computed(() => titleMap[route.name as string])
 
 const navGroups = [
   {
-    navs: [{ to: '/dashboard', label: t('dashboard'), icon: IconHomeFilled }],
+    navs: [{ to: '/dashboard', label: titleMap.dashboard, icon: IconHomeFilled }],
   },
   {
     name: 'Clinic',
     navs: [
-      { to: '/articles', label: t('articles'), icon: IconArticleFilled },
-      { to: '/settings', label: t('settings'), icon: IconSettingsFilled },
+      { to: '/articles', label: titleMap.articles, icon: IconArticleFilled },
+      { to: '/settings', label: titleMap.settings, icon: IconSettingsFilled },
     ],
+  },
+  {
+    name: 'Users',
+    navs: [{ to: '/members', label: t('members'), icon: IconUsers }],
   },
 ]
 
@@ -40,7 +46,7 @@ const options: Record<string, { label: string, icon: Component }> = {
 }
 const selected = ref('profile')
 
-function onSelected(_: unknown, key: string | number) {
+function onSelected(key: string) {
   if (key === 'logout') {
     logoutUser().then(() => {
       router.push('/login')
@@ -76,12 +82,12 @@ function onSelected(_: unknown, key: string | number) {
             </template>
           </Popover>
 
-          <Dropdown v-model:value="selected" :options @select="onSelected">
+          <Dropdown v-model:value="selected" :options @select="({ key }) => onSelected(key as string)">
             <Button plain class="rounded-full">
               <IconUser />
             </Button>
             <template #option="{ option }">
-              <component :is="option.icon" size="20" class="inline shrink-0" />
+              <component :is="option.icon" stroke="1.5" class="inline shrink-0" />
               {{ option.label }}
             </template>
           </Dropdown>
@@ -98,6 +104,7 @@ function onSelected(_: unknown, key: string | number) {
   "en-US": {
     "dashboard": "Dashboard",
     "articles": "Articles",
+    "members": "Members",
     "settings": "Settings",
     "profile": "Profile",
     "logout": "Logout"
@@ -120,7 +127,7 @@ function onSelected(_: unknown, key: string | number) {
 
   .main {
     min-height: calc(100vh - var(--app-header-height));
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 }
 </style>
