@@ -1,10 +1,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #3b82f6;
+  --color-primary: #ff0283;
   --color-border: #ebe6e7;
+  --color-success: #00c951;
+  --color-warning: #fdc700;
+  --color-danger: #fb2c36;
+  --color-info: #00a6f4;
+  --color-neutral: #6b7280;
   --transition-duration-medium: 250ms;
   --transition-duration-fast: 150ms;
   --grid-template-rows-panel: auto 1fr;
-
 }
