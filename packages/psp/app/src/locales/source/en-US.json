@@ -11,5 +11,11 @@
   "scheduled": "Scheduled",
   "published": "Published",
   "paused": "Paused",
-  "deleted": "Deleted"
+  "deleted": "Deleted",
+  "edit": "Edit",
+  "delete": "Delete",
+  "add_member": "Add member",
+  "member": "Member",
+  "moderator": "Moderator",
+  "admin": "Admin"
 }
