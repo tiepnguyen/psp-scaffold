@@ -1,14 +1,14 @@
-<script setup lang="ts" generic="T extends string | number | Record<string, unknown>">
+<script setup lang="ts" generic="T extends string | number | Record<string, any>">
 const props = defineProps<{
   options: T[] | Record<string, T>
 }>()
 
 const emit = defineEmits<{
-  select: [option: T, key: string | number]
+  select: [value: { option: T, key: string | number }]
   change: [value: EmitValue]
 }>()
 
-type EmitValue = typeof props.options extends Record<string, unknown> ? string : T
+type EmitValue = typeof props.options extends Record<string, any> ? string : T
 
 const selected = defineModel<T | string>('value')
 const options = computed(() => props.options as T[])
@@ -21,7 +21,7 @@ function isSelected(option: T, key: string | number) {
 }
 
 function selectOption(option: T, key: string | number, hide: () => void) {
-  emit('select', option, key)
+  emit('select', { option, key })
 
   const value = typeof key === 'string' ? key : option
 
@@ -75,8 +75,8 @@ function selectOption(option: T, key: string | number, hide: () => void) {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    gap: 1rem;
+    padding: 0.625rem 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
