@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IconDotsVertical, IconEdit, IconFilter, IconPlus, IconTrash } from '@tabler/icons-vue'
 import { showDialog } from '@/plugins/dialog'
+import { showNotification } from '@/plugins/notification'
 
 type RoleStatus = 'MEMBER' | 'MODERATOR' | 'ADMIN'
 interface ItemOptions { label: string, icon: Component, style?: string }
@@ -82,13 +83,22 @@ function onSelectOption(key: string) {
     })
   }
 }
+
+function addMember() {
+  const randomName = `Member ${Math.random().toString(36).substring(2, 6)}`
+  showNotification({
+    title: 'Member Added',
+    message: `The member ${randomName} has been added successfully.`,
+    autoClose: true,
+  })
+}
 </script>
 
 <template>
   <div class="grid grid-rows-panel gap-6">
     <div class="toolbar">
       <section>
-        <Button class="font-medium pe-3">
+        <Button class="font-medium pe-3" @click="addMember">
           <IconPlus />
           {{ $t('add_member') }}
         </Button>

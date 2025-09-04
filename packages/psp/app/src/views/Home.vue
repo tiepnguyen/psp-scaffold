@@ -8,6 +8,7 @@ import {
   IconUser,
   IconUsers,
 } from '@tabler/icons-vue'
+import { Notifications } from '@/plugins/notification'
 import { logoutUser } from '@/services/authentication'
 
 const route = useRoute()
@@ -96,6 +97,8 @@ function onSelected(key: string) {
     </AppHeader>
 
     <RouterView class="main" />
+
+    <Notifications />
   </div>
 </template>
 
