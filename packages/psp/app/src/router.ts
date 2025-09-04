@@ -33,6 +33,11 @@ export const router = createRouter({
           path: 'articles',
           component: () => import('@/views/Articles.vue'),
         },
+        {
+          name: 'members',
+          path: 'members',
+          component: () => import('@/views/Members.vue'),
+        },
       ],
     },
     {
@@ -53,10 +58,7 @@ router.beforeEach(async ({ name, meta, path }) => {
   const role = await getUserRole()
 
   if (meta.requiresAuth && !role) {
-    return {
-      name: 'login',
-      query: { redirect: path },
-    }
+    return { name: 'login', query: { redirect: path } }
   }
 
   if (name === 'login' && role) {
