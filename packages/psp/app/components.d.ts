@@ -12,6 +12,7 @@ declare module 'vue' {
     AppSidebar: typeof import('./src/components/AppSidebar.vue')['default']
     Button: typeof import('./src/components/Button.vue')['default']
     Dropdown: typeof import('./src/components/Dropdown.vue')['default']
+    ListView: typeof import('./src/components/ListView.vue')['default']
     LoginForm: typeof import('./src/components/LoginForm.vue')['default']
     OTPForm: typeof import('./src/components/OTPForm.vue')['default']
     OTPInput: typeof import('./src/components/OTPInput.vue')['default']
@@ -20,5 +21,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SearchInput: typeof import('./src/components/SearchInput.vue')['default']
     TableView: typeof import('./src/components/TableView.vue')['default']
+    TileView: typeof import('./src/components/TileView.vue')['default']
   }
 }
